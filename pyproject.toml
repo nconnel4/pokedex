@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "pokedex"
+version = "0.1.0"
+description = "A gen-1 pokedex app using FastAPI and Graphql."
+authors = ["nconnel4 <nconnel4@hotmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "pokedex"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+sqlalchemy = "^2.0.20"
+fastapi = "^0.101.1"
+strawberry-graphql = {extras = ["fastapi"], version = "^0.205.0"}
+
+
+[tool.poetry.group.dev.dependencies]
+flake8-pyproject = "^1.2.3"
+flake8 = "^6.1.0"
+pytest = "^7.4.0"
+mypy = "^1.5.1"
+isort = "^5.12.0"
+black = "^23.7.0"
+uvicorn = "^0.23.2"
+httpx = "^0.24.1"
+trio = "^0.22.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath=["src"]
+testpaths=["tests"]
+
+[tool-isort]
+profile="black"
