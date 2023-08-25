@@ -8,7 +8,6 @@ repos:
       - id: debug-statements
       - id: name-tests-test
         args: [--pytest-test-first]
-      - id: requirements-txt-fixer
   - repo: https://github.com/psf/black
     rev: 23.7.0
     hooks:
@@ -27,3 +26,22 @@ repos:
       - id: mypy
         additional_dependencies: [types-all]
         exclude: ^tests/
+  - repo: https://github.com/python-poetry/poetry
+    rev: "1.6.1"
+    hooks:
+      - id: poetry-check
+      - id: poetry-lock
+      - id: poetry-export
+        name: export requirements.txt
+        args: ["-f", "requirements.txt", "-o", "requirements.txt"]
+      - id: poetry-export
+        name: export requirements-dev.txt
+        args:
+          [
+            "-f",
+            "requirements.txt",
+            "-o",
+            "requirements-dev.txt",
+            "--only",
+            "dev",
+          ]
