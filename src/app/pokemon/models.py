@@ -19,6 +19,6 @@ class Pokemon(Model):
     height: Mapped[int]
     weight: Mapped[float]
 
-    types: Mapped[list["Type"]] = relationship(  # noqa: #F821
+    types: Mapped[list["Type"]] = relationship(  # type: ignore # noqa: #F821
         secondary=PokemonType, back_populates="pokemon"
     )
