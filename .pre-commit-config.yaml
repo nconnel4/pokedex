@@ -20,11 +20,12 @@ repos:
     rev: 6.1.0
     hooks:
       - id: flake8
+        exclude: ^migrations/
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.5.1
     hooks:
       - id: mypy
-        additional_dependencies: [types-all]
+        additional_dependencies: [types-all, pydantic]
         exclude: ^tests/
   - repo: https://github.com/python-poetry/poetry
     rev: "1.6.1"
