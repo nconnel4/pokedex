@@ -1,4 +1,9 @@
 [flake8]
 max-line-length=88
-exclude =.git,__pycache__,tests
+exclude =
+  .git,
+  __pycache__,
+  tests,
+  scripts,
+  migrations
 extend-ignore = E203

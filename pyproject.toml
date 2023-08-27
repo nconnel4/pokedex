@@ -12,6 +12,9 @@ python = "^3.11"
 sqlalchemy = "^2.0.20"
 fastapi = "^0.101.1"
 strawberry-graphql = {extras = ["fastapi"], version = "^0.205.0"}
+pydantic-settings = "^2.0.3"
+python-dotenv = "^1.0.0"
+alembic = "^1.11.3"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -24,6 +27,7 @@ black = "^23.7.0"
 uvicorn = "^0.23.2"
 httpx = "^0.24.1"
 trio = "^0.22.2"
+psycopg2-binary = "^2.9.7"
 
 [build-system]
 requires = ["poetry-core"]

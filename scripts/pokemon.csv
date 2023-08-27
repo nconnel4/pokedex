@@ -1,0 +1,12 @@
+id,name,height,weight,type1,type2
+1,Bulbasaur,28,15.2,grass,poison
+2,Ivysaur,39,28.7,grass,poison
+3,Venasaur,79,220.5,grass,poison
+4,Charmander,24,18.8,fire,
+5,Charmeleon,43,41.9,fire,
+6,Charizard,67,199.5,fire,flying
+7,Squirtle,20,19.8,water,
+8,Wartortle,39,49.6,water,
+9,Blastoise,63,188.5,water,
+25,Pikachu,14,13.2,electric,
+26,Raichu,31,66.1,electric,
