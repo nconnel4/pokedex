@@ -11,7 +11,6 @@ sys.path.append(APP_DIR)
 
 from app.core.db import Model, engine
 from app.pokemon import models
-from app.types import models
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
