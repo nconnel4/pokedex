@@ -28,6 +28,7 @@ uvicorn = "^0.23.2"
 httpx = "^0.24.1"
 trio = "^0.22.2"
 psycopg2-binary = "^2.9.7"
+flake8-for-pycharm = "^0.4.1"
 
 [build-system]
 requires = ["poetry-core"]

@@ -1,5 +1,5 @@
 from sqlalchemy import Column, ForeignKey, String, Table
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, WriteOnlyMapped, mapped_column, relationship
 
 from app.core.db import Model
 
@@ -11,6 +11,20 @@ PokemonType = Table(
 )
 
 
+class Type(Model):
+    __tablename__ = "types"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String(25))
+
+    pokemon: WriteOnlyMapped[list["Pokemon"]] = relationship(
+        secondary=PokemonType, back_populates="types"
+    )
+
+    def __repr__(self):
+        return f"Type({self.id}, '{self.name}')"
+
+
 class Pokemon(Model):
     __tablename__ = "pokemon"
 
@@ -19,6 +33,18 @@ class Pokemon(Model):
     height: Mapped[int]
     weight: Mapped[float]
 
-    types: Mapped[list["Type"]] = relationship(  # type: ignore # noqa: #F821
+    types: Mapped[list["Type"]] = relationship(
         secondary=PokemonType, back_populates="pokemon"
     )
+
+    def __repr__(self):
+        return f"Pokemon({self.id}, '{self.name}')"
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "height": self.height,
+            "weight": self.weight,
+            "types": [type.name for type in self.types],
+        }

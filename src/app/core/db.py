@@ -1,12 +1,12 @@
 from sqlalchemy import MetaData, create_engine
-from sqlalchemy.orm import DeclarativeBase, sessionmaker
+from sqlalchemy.orm import DeclarativeBase, MappedAsDataclass, sessionmaker
 
 from app.core.config import Settings
 
 settings = Settings()
 
 
-class Model(DeclarativeBase):
+class Model(MappedAsDataclass, DeclarativeBase):
     metadata = MetaData(
         naming_convention={
             "ix": "ix_%(column_0_label)s",
@@ -18,6 +18,5 @@ class Model(DeclarativeBase):
     )
 
 
-settings = Settings()
 engine = create_engine(settings.database_url.__str__())
 Session = sessionmaker(engine)
